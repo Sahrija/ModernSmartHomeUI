@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:smarthomeui/util/smart_device_box.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -35,86 +34,91 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // app bar
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
-                vertical: verticalPadding,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // menu icon
-                  Image.asset(
-                    'lib/icons/menu.png',
-                    height: 45,
-                    color: Colors.grey[800],
-                  ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // app bar
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: horizontalPadding,
+                  vertical: verticalPadding,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // menu icon
+                    Image.asset(
+                      'lib/icons/menu.png',
+                      height: 45,
+                      color: Colors.grey[800],
+                    ),
 
-                  // account icon
-                  Icon(
-                    Icons.person,
-                    size: 45,
-                    color: Colors.grey[800],
-                  )
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // welcome home
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Welcome Home,",
-                    style: TextStyle(fontSize: 20, color: Colors.grey.shade800),
-                  ),
-                  Text(
-                    'Mitch Koko',
-                    style: GoogleFonts.bebasNeue(fontSize: 72),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40.0),
-              child: Divider(
-                thickness: 1,
-                color: Color.fromARGB(255, 204, 204, 204),
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            // smart devices grid
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-              child: Text(
-                "Smart Devices",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.grey.shade800,
+                    // account icon
+                    Icon(
+                      Icons.person,
+                      size: 45,
+                      color: Colors.grey[800],
+                    )
+                  ],
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
 
-            // grid
-            Expanded(
-              child: GridView.builder(
+              const SizedBox(height: 20),
+
+              // welcome home
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome Home,",
+                      style:
+                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                    ),
+                    Text(
+                      'Mitch Koko',
+                      style: TextStyle(
+                        fontFamily: 'BebasNeue', // Use your font family name
+                        fontSize: 72,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40.0),
+                child: Divider(
+                  thickness: 1,
+                  color: Color.fromARGB(255, 204, 204, 204),
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              // smart devices grid
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: Text(
+                  "Smart Devices",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.grey.shade800,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              // grid
+              GridView.builder(
+                shrinkWrap: true,
                 itemCount: 4,
-                physics: const NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -128,9 +132,9 @@ class _HomePageState extends State<HomePage> {
                     onChanged: (value) => powerSwitchChanged(value, index),
                   );
                 },
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
