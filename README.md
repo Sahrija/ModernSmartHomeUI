@@ -1,3 +1,8 @@
+# DISCLAIMER ⚠️
+This is made by **Mitch Koko**
+https://github.com/mitchkoko
+
+
 # MODERN SMART HOME UI x FLUTTER
 
 Watch tutorial here: https://youtu.be/FMV8pbz0sN8
