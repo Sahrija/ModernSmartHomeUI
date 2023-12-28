@@ -1,5 +1,5 @@
 # DISCLAIMER ⚠️
-This is made by **Mitch Koko**
+This was originaly made by **Mitch Koko**
 https://github.com/mitchkoko
 
 
